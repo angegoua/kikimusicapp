@@ -1,0 +1,692 @@
+/*
+*GENERAL
+*/
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --iphone-width: 270px;
+    --iphone-height: 544px;
+    --iphone-radius: 50px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+.flex-center {
+    /*to avoid repeating same property*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    height: 100vh;
+    background: #060025;
+
+}
+
+/*
+*IPHONE
+*/
+.container .iphone-container {
+    width: var(--iphone-width);
+    /* real iphone 11 pro width in px (7.14cm) */
+    height: var(--iphone-height);
+    /*real '' '' '' height in px (14.4cm) */
+    background: #b2b2b2;
+    border-radius: var(--iphone-radius);
+    position: relative;
+}
+
+.iphone-container .border-shadow {
+    position: absolute;
+    box-shadow: inset 0 0 7px 0 rgba(51, 51, 51, 0.66);
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+}
+
+.container .iphone-container .screen-border {
+    width: calc(var(--iphone-width) - 10px);
+    height: calc(var(--iphone-height) - 10px);
+    border-radius: var(--iphone-radius);
+    background: rgb(12, 12, 12);
+    position: relative;
+}
+
+.container .iphone-container .screen-border .glass-shadow-reflexion {
+    width: calc(var(--iphone-width) - 15px);
+    height: calc(var(--iphone-height) - 15px);
+    border-radius: var(--iphone-radius);
+    box-shadow: inset 0 0 15px 0 rgba(255, 255, 255, 0.66);
+    z-index: 2;
+    position: absolute;
+
+}
+
+.iphone-container .notch {
+    width: 132px;
+    /*4cm in real*/
+    height: 25px;
+    /*0.5cm ""*/
+    background: rgb(12, 12, 12);
+    top: 12px;
+    border-radius: 0 0 10px 10px;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    z-index: 4;
+}
+
+.iphone-container .notch::before,
+.iphone-container .notch::after {
+    content: '';
+    height: 8px;
+    position: absolute;
+    top: 0;
+    width: 8px;
+}
+
+.iphone-container .notch::before {
+
+    background: radial-gradient(circle at bottom right, transparent 0, transparent 70%, rgb(12, 12, 12) 70%, rgb(12, 12, 12) 100%);
+    right: -8px;
+}
+
+.iphone-container .notch::after {
+    background: radial-gradient(circle at bottom left, transparent 0, transparent 70%, rgb(12, 12, 12) 70%, rgb(12, 12, 12) 100%);
+    left: -8px;
+}
+
+.notch .speaker {
+    height: 3px;
+    width: 50px;
+    background: #ffffff2f;
+    border-radius: 5px;
+}
+
+.notch .cam {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: rgba(30, 114, 192, 0.377);
+}
+
+
+/* IPHONE CONTENT */
+
+/* .iphone-container .iphone-content {
+    background: #060025;
+    width: calc(var(--iphone-width) - 35px);
+    height: calc(var(--iphone-height) - 35px);
+    border-radius: 40px;
+} */
+
+.iphone-container .off {
+    width: 3px;
+    height: 80px;
+    position: absolute;
+    right: -3px;
+    top: 25%;
+    background: #b2b2b2;
+    border-radius: 0 3px 3px 0;
+    cursor: pointer;
+}
+
+.iphone-container .volume-button {
+    width: 3px;
+    height: 40px;
+    position: absolute;
+    left: -3px;
+    background: #b2b2b2;
+    border-radius: 3px 0px 0px 3px;
+    cursor: pointer;
+}
+
+.iphone-container .volume-up-button {
+    top: 22%;
+}
+
+.iphone-container .volume-down-button {
+    top: 32%;
+}
+
+.iphone-container .silence {
+    width: 3px;
+    height: 25px;
+    position: absolute;
+    left: -3px;
+    background: #b2b2b2;
+    border-radius: 3px 0px 0px 3px;
+    top: 15%;
+}
+
+/*
+*IPHONE CONTENT
+*/
+
+
+.iphone-content {
+    position: relative;
+
+    background: #060025;
+    width: calc(var(--iphone-width) - 35px);
+    height: calc(var(--iphone-height) - 35px);
+    border-radius: 40px;
+
+    transition: 0.3s opacity;
+    overflow: hidden;
+    z-index: 3;
+    will-change: opacity;
+
+}
+
+
+
+.iphone-container .iphone-content .title {
+    font-family: 'Gilroy';
+    color: white;
+    margin-top: 60px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.title span {
+    -webkit-text-stroke: 1px white;
+    color: transparent;
+    display: block;
+}
+
+
+.iphone-content .album-cover {
+    margin: 0 auto;
+    overflow: hidden;
+    height: 210px;
+    width: 210px;
+    border-radius: 30px;
+    box-shadow: 0px 30px 99px #C9519A70;
+
+}
+
+.album-cover img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+/*
+*IPHONE CONTENT CONTROLS
+*/
+.seek-bar {
+    width: 215px;
+    height: 3px;
+    background: #757575;
+    border-radius: 3px;
+    margin: 15px auto 20px auto;
+    position: relative;
+    --handleSize: 10px;
+    cursor: pointer;
+}
+
+.seek-bar .seek-bar-fill {
+    /* width: 100px; */
+    transform-origin: 0 0;
+    transform: scaleX(0.01);
+    height: 100%;
+    border-radius: 3px;
+    background: #B9B9B9;
+    will-change: transform;
+}
+
+.seek-bar .seek-bar-fill+.handle {
+    transform: translateX(0);
+    will-change: transform;
+    /* transition: ease-in 0.3s transform; */
+    background: #fff;
+    width: var(--handleSize);
+    height: var(--handleSize);
+    border-radius: 50%;
+    position: absolute;
+    left: calc(-1 * var(--handleSize) / 2);
+    top: calc(50% - var(--handleSize) / 2);
+    user-select: none;
+}
+
+
+
+
+
+.iphone-content .controls {
+    display: flex;
+    justify-content: space-between;
+    width: 120px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.controls .play-box {
+    margin-left: 10px;
+    position: relative;
+    width: 30px;
+    height: 30px;
+}
+
+.play-box svg {
+    will-change: opacity;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.full-screen-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-origin: 0 0;
+    width: 1px;
+    transform: scaleX(0);
+    height: 100%;
+    background: #0B0141;
+    will-change: transform;
+    z-index: -2;
+}
+
+.iphone-content .volume {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 200px;
+    margin: 10px auto;
+}
+
+
+.iphone-content .volume .seek-bar-volume {
+    width: 150px;
+    height: 3px;
+    background: #757575;
+    border-radius: 3px;
+    position: relative;
+
+}
+
+.iphone-content .volume .seek-bar-fill-volume {
+    transform-origin: 0 0;
+    /* transform: scaleX(1); */
+    height: 100%;
+    border-radius: 3px;
+    background: #B9B9B9;
+    will-change: transform;
+}
+
+.iphone-content .volume .seek-bar-fill-volume + .handle {
+    transform-origin: 0 0;
+    /* transform: translateX(150px); */
+    will-change: transform;
+    background: #ffffff;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    position: absolute;
+    left: -5px;
+    top: calc(50% - 5px);
+}
+
+.controls svg,
+.volume svg {
+    fill: #ffffff;
+}
+
+.iphone-content .playlist-controls {
+    width: 150px;
+    margin: 15px auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.iphone-content .playlist-controls svg {
+    fill: #757575;
+    transition: ease-in 0.2s opacity;
+    /* opacity: 0.5; */
+    will-change: opacity;
+}
+
+.playlist-controls .heart {
+    position: relative;
+}
+
+.playlist-controls .heart .like-info {
+    position: absolute;
+    top: -400%;
+    left: -93px;
+    width: 200px;
+    height: auto;
+    padding: 10px;
+    background: rgb(17, 26, 66);
+    font-family: 'Noto Sans';
+    font-size: 12px;
+    opacity: 1 !important;
+    border-radius: 10px;
+    z-index: 10000;
+    display: none;
+}
+
+.playlist-controls .heart .like-info:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: calc(50% - 12px);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+
+    border-top: 10px solid rgb(17, 26, 66);;
+}
+
+.playlist-controls img {
+    width: 14px;
+}
+
+.iphone-content .playlist-controls svg:hover
+{
+    opacity: 1;
+}
+
+.iphone-content .playlist-controls .heart:hover .like-info{
+    display: block;
+}
+svg, img {
+    cursor: pointer;
+}
+
+
+.audio-info p {
+    margin: 8px 15px;
+    color: white;
+    font-family: 'Gilroy';
+    text-align: center;
+}
+
+.audio-info .audio-artist {
+    font-family: 'Noto Sans';
+    font-size: 10px;
+}
+
+.audio-info .audio-title {
+    font-weight: bold;
+}
+
+
+
+.tracklist {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: #060025;
+    z-index: 2000;
+    display: none;
+}
+
+
+.tracklist p {
+    margin: 5px;
+}
+
+.tracklist ul {
+    margin: 30px 10px 0 10px;
+}
+
+.tracklist .song-info {
+    border-bottom: rgba(100, 100, 100, 0.439) solid 1px;
+}
+
+.tracklist .song-title {
+    font-family: 'Gilroy';
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.tracklist .artist {
+    font-family: 'Noto Sans';
+    font-size: 8px;
+    opacity: 0.8;
+}
+
+li {
+    list-style: none;
+}
+
+/* Liked Section */
+
+.iphone-content .liked-musics {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: -100%;
+    /* right: -100%; */
+    background: #060025a9;
+    font-family: 'Gilroy';
+    font-size: 20px;
+    padding: 20px;
+    border-radius: 40px;
+    transition: transform 0.5s cubic-bezier(0.83, 0, 0.11, 0.94);
+    backdrop-filter: blur(15px);
+
+    will-change: transform;
+}
+
+
+.iphone-content .liked-musics .title {
+    font-family: 'Gilroy';
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+
+.iphone-content .liked-musics .back {
+    text-align: center;
+}
+.iphone-content .liked-musics .back svg {
+    margin: 15px;
+    fill: none;
+    stroke: #fff;
+    stroke-linecap: round;
+    stroke-width: 3px;
+    transform: rotate(-90deg);
+
+}
+
+.notification {
+    position: absolute;
+    top: 30px;
+    left: 5%;
+    /* 50% - width / 2*/
+    width: 90%;
+    height: 80px;
+    margin: 0 auto;
+    padding: 8px 0;
+    border-radius: 15px;
+    background: #0000006b;
+    overflow: hidden;
+
+    transform: translateY(-130px);
+    transition: 0.5s transform;
+
+    text-align: center;
+    backdrop-filter: blur(10px);
+    will-change: transform;
+
+}
+
+.notification p {
+    font-family: 'Noto Sans';
+    font-size: 16px;
+    font-weight: bold;
+    opacity: 0.5;
+    /* margin-top: 6px; */
+
+}
+
+
+/*
+*UPLOAD FILES SECTIONS
+*/
+
+.iphone-content .upload-files 
+{
+    width: 100%;
+    height: 100%;
+    background: #060025;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    transition : transform 0.5s cubic-bezier(0.83, 0, 0.11, 0.94);
+    border-radius: 40px;
+    will-change: transform;
+}
+
+
+.iphone-content .upload-files .back-upload  {
+    width: 50px;
+    margin:  20px auto;
+    transform: rotate(-90deg);
+    text-align: center;
+
+    z-index: 22222;
+
+}
+
+.iphone-content .upload-files .back-upload svg {
+    fill: none;
+    stroke: #fff;
+    stroke-linecap: round;
+    stroke-width: 3px;
+}
+
+.upload-files input {
+    z-index: 2000;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    padding: 10px;
+    /* background: #000; */
+    cursor: pointer;
+
+}
+
+.upload-files .upload-svg {
+    position: absolute;
+    left: calc(50% - 50px);
+    width: 100px;
+    display: block;
+    width: 100px;
+    text-align: center;
+}
+
+.upload-files .upload-svg {
+    fill : #C9519A70;
+}
+
+.playFile {
+    position: absolute;
+    bottom: 10%;
+    left: calc(50% - 50px / 2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background: #C9519A;
+    justify-content: center;
+    border: none;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: all 0.3s cubic-bezier(.63,.09,.41,1.43);
+    z-index: 2222;
+    outline: none;
+    will-change: transform, opacity;
+}
+.upload-files .playFile:hover {
+    opacity: 0.5;
+}
+
+.playFile .play {
+    fill: white;
+    margin-left: 3px;
+}
+
+
+/*
+*  JS CLASSES
+*/
+.liked-musics .liked-music {
+    width: 90px;
+    height: 80px;
+    border-radius: 10px;
+    background: #000;
+    display: inline-block;
+    margin: 2px;
+    overflow: hidden;
+}
+
+.liked-musics .liked-music img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+a {
+    position: absolute;
+    bottom: 10%;
+    left: 35%;
+}
+
+
+.playingState {
+    /* I use Opacity because it's better optimize and it's rendered in Composite */
+    opacity: 0;
+}
+
+.isLocked {
+    opacity: 0;
+}
+
+.iphone-content .shuffle.isActive {
+    background: white;
+    padding: 2px;
+    border-radius: 3px;
+    opacity: 1;
+}
+
+.iphone-content .heart.hasLiked {
+    background: white;
+    padding: 2px;
+    border-radius: 3px;
+    opacity: 1;
+}
+
+.isActiveNotif {
+    transform: translateY(0);
+}
+
+.isActive {
+    transform: translateY(-100%);
+}
+
+.isActivePlayFile {
+    transform: scale(1);
+}
+

@@ -1,0 +1,91 @@
+body {
+    background: #060025;
+    background-size: 100%;
+    height: 100%;
+    width: 100%;
+}
+
+
+
+:root {
+    --fontSize: 200px;
+    --fontFamily: 'Gilroy';
+    --width: 100%;
+}
+
+canvas {
+    z-index: -1;
+}
+
+h1 {
+    width: var(--width);
+    position: absolute;
+    top: calc(50% - var(--fontSize) / 1.5);
+    left: calc(50% - 100% / 2);
+    /* -webkit-text-stroke: 2px blanchedalmond; */
+    font-size: var(--fontSize);
+    font-family: 'Oswald';
+    color: white;
+    text-align: center;
+    z-index: 22;
+}
+
+main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.call-to-action 
+{
+    width: 400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 30%;
+    left: calc(50% - 400px / 2);
+    text-align: center;
+}
+
+
+.call-to-action a {
+    width: 130px;
+    text-decoration: none;
+    font-size: 14px;
+    font-family: 'Noto Sans';
+    text-transform: uppercase;
+    color: white;
+    padding: 15px;
+    margin: 10px;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+    will-change: opacity;
+}
+.call-to-action a:hover {
+    opacity: 1;
+}
+
+.call-to-action a:first-child {
+    background: rgb(165, 140, 0);
+    border-radius: 50px;
+}
+
+.call-to-action a:last-child {
+    border: gold 1px solid;
+    border-radius: 50px;
+}
+
+.cursor {
+    width: 15px;
+    height: 15px;
+    border: white 2px solid;
+    border-radius: 50%;
+    background: transparent;
+    position: absolute;
+    mix-blend-mode: difference;
+    
+}

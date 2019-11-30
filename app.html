@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Music App</title>
+    <link rel="stylesheet" href="styles/fontface.css">
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/style.css">
+
+</head>
+
+<body>
+    <div class="container flex-center">
+        <div class="iphone-container flex-center">
+            <div class="border-shadow"></div>
+            <div class="shadow-top-left"></div>
+            <div class="shadow-top-right"></div>
+            <div class="shadow-bottom-left"></div>
+            <div class="shadow-bottom-rigth"></div>
+            <div class="screen-border flex-center">
+                <div class="notch">
+                    <div class="speaker"></div>
+                    <div class="cam"></div>
+                </div>
+                <div class="glass-shadow-reflexion"></div>
+                <div class="iphone-content">
+
+                    <!-- The music player here -->
+                    <audio></audio>
+
+                    <div class="full-screen-progress"></div>
+
+                    <h2 class="title"><span>PLAYING</span>NOW</h2>
+                    <div class="album-cover">
+                        <img class="cover" alt="Cover">
+                    </div>
+                    <div class="audio-info">
+                        <p class="audio-title"></p>
+                        <p class="audio-artist"></p>
+                    </div>
+                    <div class="seek-bar">
+                        <div class="seek-bar-fill"></div><span class="handle"></span>
+                    </div>
+                    <div class="controls">
+                        <div class="previous">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22.5" height="13.5" viewBox="0 0 30.5 21.5">
+                                <defs></defs>
+                                <g transform="translate(-92.5 -628)">
+                                    <path class="a" d="M10.75,0,21.5,18.5H0Z"
+                                        transform="translate(92.5 649.5) rotate(-90)" />
+                                    <path class="a" d="M10.75,0,21.5,18.5H0Z"
+                                        transform="translate(104.5 649.5) rotate(-90)" />
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="play-box">
+                            <svg class="pause playingState" xmlns="http://www.w3.org/2000/svg" width="20" height="28"
+                                viewBox="0 0 20 28">
+                                <defs></defs>
+                                <g transform="translate(-178 -660)">
+                                    <rect class="a" width="8" height="28" rx="4" transform="translate(178 660)" />
+                                    <rect class="a" width="8" height="28" rx="4" transform="translate(190 660)" />
+                                </g>
+                            </svg>
+                            <svg class="play" xmlns="http://www.w3.org/2000/svg" width="25" height="31"
+                                viewBox="0 0 37 43">
+                                <defs></defs>
+                                <path class="a"
+                                    d="M17.177,7.44a5,5,0,0,1,8.646,0L38.635,29.488A5,5,0,0,1,34.312,37H8.688a5,5,0,0,1-4.323-7.512Z"
+                                    transform="translate(37) rotate(90)" />
+                            </svg>
+                        </div>
+                        <div class="next">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22.5" height="13.5" viewBox="0 0 30.5 21.5">
+                                <defs></defs>
+                                <g transform="translate(123 649.5) rotate(180)">
+                                    <path class="a" d="M10.75,0,21.5,18.5H0Z"
+                                        transform="translate(92.5 649.5) rotate(-90)" />
+                                    <path class="a" d="M10.75,0,21.5,18.5H0Z"
+                                        transform="translate(104.5 649.5) rotate(-90)" />
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+
+
+                    <div class="volume">
+                        <div class="volume-down js-volume-down">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="7.761" height="12.288"
+                                viewBox="0 0 7.761 12.288">
+                                <defs></defs>
+                                <g transform="translate(-76.096 -8.138)">
+                                    <path class="a"
+                                        d="M71.525.192a.635.635,0,0,0-.91,0L67.25,3.557H64.6a.656.656,0,0,0-.647.647v3.88a.656.656,0,0,0,.647.647H67.25L70.615,12.1a.647.647,0,0,0,1.1-.455V.647A.622.622,0,0,0,71.525.192Z"
+                                        transform="translate(12.14 8.138)" />
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="seek-bar-volume">
+                            <div class="seek-bar-fill-volume"></div><span class="handle handleVolume"></span>
+                        </div>
+                        <div class="volume-up js-volume-up">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14.181" height="11.715"
+                                viewBox="0 0 14.181 11.715">
+                                <defs></defs>
+                                <g transform="translate(0 -34.645)">
+                                    <g transform="translate(0 34.552)">
+                                        <path class="a"
+                                            d="M5.8,63.952a.507.507,0,0,0-.371.157L2.685,66.852H.527a.507.507,0,0,0-.371.156A.507.507,0,0,0,0,67.379v3.163a.507.507,0,0,0,.157.371.507.507,0,0,0,.371.157H2.685l2.743,2.743a.527.527,0,0,0,.9-.371V64.479a.534.534,0,0,0-.527-.527Z"
+                                            transform="translate(0 -62.781)" />
+                                        <g transform="translate(-3)">
+                                            <path class="a"
+                                                d="M260.893,172.145a2.1,2.1,0,0,0,.35-1.164,2.119,2.119,0,0,0-.35-1.168,1.891,1.891,0,0,0-.925-.765.459.459,0,0,0-.206-.041.513.513,0,0,0-.37.152.5.5,0,0,0-.156.374.443.443,0,0,0,.1.292.96.96,0,0,0,.239.206q.14.086.28.189a.829.829,0,0,1,.238.292,1.163,1.163,0,0,1,0,.938.83.83,0,0,1-.239.292q-.14.1-.28.189a.96.96,0,0,0-.239.205.444.444,0,0,0-.1.292.5.5,0,0,0,.156.374.513.513,0,0,0,.37.152.461.461,0,0,0,.206-.041A1.945,1.945,0,0,0,260.893,172.145Z"
+                                                transform="translate(-248.912 -164.914)" />
+                                            <path class="a"
+                                                d="M290.389,107.884a4.22,4.22,0,0,0,0-4.657,4.067,4.067,0,0,0-1.855-1.554.594.594,0,0,0-.214-.041.535.535,0,0,0-.528.528.523.523,0,0,0,.322.486,5.116,5.116,0,0,1,.626.363,3.152,3.152,0,0,1,0,5.094,5.109,5.109,0,0,1-.626.363.523.523,0,0,0-.322.486.507.507,0,0,0,.157.371.516.516,0,0,0,.379.157.577.577,0,0,0,.206-.041A4.067,4.067,0,0,0,290.389,107.884Z"
+                                                transform="translate(-276.333 -99.539)" />
+                                            <path class="a"
+                                                d="M320.15,36.929a6.221,6.221,0,0,0-2.785-2.336.593.593,0,0,0-.214-.041.535.535,0,0,0-.527.527.557.557,0,0,0,.321.486,1.908,1.908,0,0,0,.185.086,1.847,1.847,0,0,1,.185.086,6.268,6.268,0,0,1,.676.42,5.253,5.253,0,0,1,1.582,1.87,5.271,5.271,0,0,1,0,4.762,5.25,5.25,0,0,1-1.582,1.87,6.3,6.3,0,0,1-.676.42,1.932,1.932,0,0,1-.185.086,1.777,1.777,0,0,0-.185.087.557.557,0,0,0-.321.486.535.535,0,0,0,.527.527.59.59,0,0,0,.214-.041,6.325,6.325,0,0,0,2.785-9.3Z"
+                                                transform="translate(-304.016 -34.459)" />
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="playlist-controls">
+                        <div class="shuffle">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="10.768" height="8.792"
+                                viewBox="0 0 10.768 8.792">
+                                <defs></defs>
+                                <g transform="translate(-92 -755.249)">
+                                    <g transform="translate(92 756.249)">
+                                        <path class="a"
+                                            d="M10.647,101.582,8.628,99.959a.347.347,0,0,0-.358-.045.324.324,0,0,0-.194.294v.974H7.513a1.351,1.351,0,0,1-1.141-.61L4.192,97.209a2.7,2.7,0,0,0-2.283-1.221H0v1.3H1.909a1.351,1.351,0,0,1,1.141.61L5.23,101.26a2.7,2.7,0,0,0,2.283,1.221h.563v.974a.324.324,0,0,0,.194.294.352.352,0,0,0,.143.031.34.34,0,0,0,.215-.075l2.019-1.623a.317.317,0,0,0,0-.5Z"
+                                            transform="translate(0 -95.988)" />
+                                    </g>
+                                    <g transform="translate(92 755.249)">
+                                        <path class="a"
+                                            d="M10.647,2.2,8.628,3.82a.347.347,0,0,1-.358.045.324.324,0,0,1-.194-.294V2.6H7.513a1.351,1.351,0,0,0-1.141.61L4.192,6.571A2.7,2.7,0,0,1,1.909,7.792H0v-1.3H1.909a1.351,1.351,0,0,0,1.141-.61L5.23,2.519A2.7,2.7,0,0,1,7.513,1.3h.563V.325A.324.324,0,0,1,8.27.031.352.352,0,0,1,8.413,0a.34.34,0,0,1,.215.075L10.647,1.7a.317.317,0,0,1,0,.5Z" />
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="heart">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="10.717" height="9.422"
+                                viewBox="0 0 10.717 9.422">
+                                <defs></defs>
+                                <path class="a"
+                                    d="M9.852,29.376a2.968,2.968,0,0,0-4.2,0l-.293.293-.3-.3a2.965,2.965,0,0,0-4.2,0,2.965,2.965,0,0,0,0,4.2L5.14,37.832a.3.3,0,0,0,.432,0l4.276-4.26a2.973,2.973,0,0,0,0-4.2Zm-.436,3.765-4.06,4.044L1.3,33.134a2.352,2.352,0,1,1,3.326-3.326l.513.513a.306.306,0,0,0,.434,0l.509-.509a2.354,2.354,0,0,1,3.329,3.329Z"
+                                    transform="translate(0 -28.501)" />
+                            </svg>
+                            <div class="like-info">
+                                <p>Click to like this music or Long press to display liked Music Panel</p>
+                            </div>
+                        </div>
+                        <div class="upload-button">
+                            <img src="assets/upload.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="upload-files">
+                        <div class="back-upload">
+                            <svg class= "close" xmlns="http://www.w3.org/2000/svg" width="10.849" height="21.849"
+                                viewBox="0 0 14.849 25.849">
+                                <defs></defs>
+                                <g transform="translate(-185.575 -25.075)">
+                                    <line class="a" x2="15" transform="translate(187.697 37.803) rotate(-45)" />
+                                    <line class="a" x2="15" transform="translate(187.697 38.197) rotate(45)" />
+                                </g>
+                            </svg>
+                        </div>
+                        <input id="files" type="file" name="files[]" accept="audio/*" />
+                        <button class="playFile">
+                            <svg class="play" xmlns="http://www.w3.org/2000/svg" width="25" height="31"
+                                viewBox="0 0 37 43">
+                                <defs></defs>
+                                <path class="a"
+                                    d="M17.177,7.44a5,5,0,0,1,8.646,0L38.635,29.488A5,5,0,0,1,34.312,37H8.688a5,5,0,0,1-4.323-7.512Z"
+                                    transform="translate(37) rotate(90)" />
+                            </svg>
+                        </button>
+                        <svg class= "upload-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;"
+                            xml:space="preserve">
+                            <g>
+                                <g>
+                                    <path d="M259.257,0c-10.794,0-19.542,8.748-19.542,19.542v310.066c0,10.794,8.748,19.542,19.542,19.542
+			s19.542-8.748,19.542-19.542V19.542C278.799,8.748,270.051,0,259.257,0z" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <path d="M380.73,106.224L272.598,5.257c-7.511-7.009-19.164-7.009-26.675,0L137.79,106.224
+			c-7.888,7.367-8.318,19.731-0.951,27.619c3.843,4.123,9.061,6.208,14.285,6.208c4.781,0,9.569-1.739,13.334-5.257l94.798-88.519
+			l94.798,88.519c7.901,7.367,20.258,6.937,27.619-0.951C389.035,125.955,388.618,113.591,380.73,106.224z" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <path d="M454.677,166.758H350.453c-10.794,0-19.542,8.748-19.542,19.542c0,10.794,8.748,19.542,19.542,19.542h84.682v267.074
+			H76.865V205.842h84.682c10.794,0,19.542-8.748,19.542-19.542c0-10.794-8.748-19.542-19.542-19.542H57.323
+			c-10.794,0-19.542,8.748-19.542,19.542v306.158c0,10.794,8.748,19.542,19.542,19.542h397.354c10.794,0,19.542-8.748,19.542-19.542
+			V186.3C474.219,175.507,465.471,166.758,454.677,166.758z" />
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
+                    <!-- liked music -->
+                    <div class="liked-musics">
+                        <div class="back">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="10.849" height="21.849"
+                                viewBox="0 0 14.849 25.849">
+                                <defs></defs>
+                                <g transform="translate(-185.575 -25.075)">
+                                    <line class="a" x2="15" transform="translate(187.697 37.803) rotate(-45)" />
+                                    <line class="a" x2="15" transform="translate(187.697 38.197) rotate(45)" />
+                                </g>
+                            </svg>
+                        </div>
+                        <h2 class="title"><span>LIKED</span>MUSICS</h2>
+                    </div>
+
+                    <div class="notification">
+                        <p class="notification-content"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="off"></div>
+            <div class="volume-button volume-up-button js-volume-up"></div>
+            <div class=" volume-button volume-down-button js-volume-down"></div>
+            <div class="silence"></div>
+        </div>
+        <a href="video.html">See an amazing fun camera audio visualiser</a>
+
+    </div>
+    <script src="scripts/script.js"></script>
+</body>
+
+</html>

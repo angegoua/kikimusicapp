@@ -13,24 +13,28 @@ const title = iphoneContent.querySelector('.audio-title')
 
 const tracklist = {
     musicSrc: [
+        'assets/badliar.mp3',
         'assets/audd.mp3',
         'assets/chocolat.mp3',
         'assets/stay.mp3',
     ],
 
     coverSrc: [
+        'assets/badliar-min.jpg',
         'assets/audd.png',
         'assets/chocolat.jpg',
         'assets/stay.jpg'
     ],
 
     title: [
+        'Bad Liar',
         'Au DD',
         'Chocolat',
         'Stay'
     ],
 
     artist: [
+        'Imagine Dragons',
         'PNL',
         'Roméo Elvis',
         'Rihanna'

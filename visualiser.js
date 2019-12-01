@@ -101,11 +101,13 @@ const initAudio = () => {
     audio = new THREE.Audio(audioListener);
 
     const audioLoader = new THREE.AudioLoader();
-    audioLoader.load('assets/chocolat.mp3', (buffer) => {
+    audioLoader.load('assets/sail.mp3', (buffer) => {
 
         audio.setBuffer(buffer);
         audio.setLoop(true);
         audio.setVolume(0.5);
+        
+        
         audio.play();
     });
 

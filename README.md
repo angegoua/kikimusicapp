@@ -52,6 +52,8 @@ Care the order of your music. If you set a link a position 4, you have to set it
 
 I, myself, dit the design proto on Adobe XD by keeping in king itunes App Dark mode. I want to give a remastered version.
 
+![Protoype of the app](https://angegoua.github.io/kikimusicapp/assets/background.png/ "Protoype of the app")
+
 ## Thanks
 
 Thanks to Francois Xavier & Corto to help me.

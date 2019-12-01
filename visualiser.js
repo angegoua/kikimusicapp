@@ -102,7 +102,6 @@ const initAudio = () => {
 
     const audioLoader = new THREE.AudioLoader();
     audioLoader.load('assets/chocolat.mp3', (buffer) => {
-        document.body.classList.remove(classNameForLoading);
 
         audio.setBuffer(buffer);
         audio.setLoop(true);

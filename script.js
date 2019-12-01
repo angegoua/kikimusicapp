@@ -484,7 +484,6 @@ class MusicPlay {
                     title.innerHTML = likedTrackList.title[i]
                     artist.innerHTML = likedTrackList.artist[i]
 
-                    console.log(this.coverSrc);
 
                     this.audioElement.play()
 
@@ -594,6 +593,10 @@ class MusicPlay {
 
                         files.style.transform = 'scale(0)'
                         document.querySelector('.message').style.transform = 'scale(1)'
+                        audio.pause()
+                        console.log(audio);
+                        
+                        
 
                     })
 

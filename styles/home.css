@@ -80,13 +80,3 @@ main {
     border-radius: 50px;
 }
 
-.cursor {
-    width: 15px;
-    height: 15px;
-    border: white 2px solid;
-    border-radius: 50%;
-    background: transparent;
-    position: absolute;
-    mix-blend-mode: difference;
-    
-}

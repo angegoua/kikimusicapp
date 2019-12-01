@@ -1,3 +1,8 @@
+/*
+    The MAin file JS is here it's a POO. To add music, just add your files in assets and complete the tracklist in order
+*/ 
+
+
 const audio = document.querySelector('audio')
 const iphoneContent = document.querySelector('.iphone-content')
 const playBox = iphoneContent.querySelector('.play-box')

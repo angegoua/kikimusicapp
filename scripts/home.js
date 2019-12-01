@@ -1,13 +1,15 @@
-//Create Box
-// class Box {
-//     constructor() {
-//       this.size = .45;
-//       this.geom = new RoundedBoxGeometry(this.size, this.size, this.size, .02, .2);
-//       this.rotationX = 0;
-//       this.rotationY = 0;
-//       this.rotationZ = 0;
-//     }
-//   }
+/*
+  Hello dear Dev, I hope you are fine. This work below has been made by Ange Goua.
+  It's an expermenting of three.js for a class project. BY THE WAY SOME COMMENTS IS JUST THRE JUST TO REMEMBER MYSELF HOW WORK THE THRREE.JS LIBS
+  I tried to do it comprehensible
+
+  To see feature, read the readme.md
+  You can look at my github on github.io/angegooua.
+
+  Have Fun
+*/
+
+
 
 //Create Cone
 
@@ -69,7 +71,7 @@ class App {
       alpha: true
     });
 
-    this.groupMesh = new THREE.Object3D();
+    this.groupMesh = new THREE.Object3D(); //To create an group of element
     this.meshes = [];
     this.grid = {
       rows: 15,
@@ -85,6 +87,7 @@ class App {
       // new Box()
     ];
 
+    // to assist with raycasting
     this.raycaster = new THREE.Raycaster();
 
     //Calling methods
@@ -121,26 +124,29 @@ class App {
 
   
 
+  //SCENE
   createScene() {
 
-    this.renderer.setSize(window.innerWidth, window.innerHeight);
+    this.renderer.setSize(window.innerWidth, window.innerHeight); //Render in the size of the window
     this.renderer.setPixelRatio(window.devicePixelRatio);
 
 
-    this.renderer.shadowMap.enabled = true;
+    this.renderer.shadowMap.enabled = true; // to appear shadow
     this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     const main = document.querySelector('main')
-    main.appendChild(this.renderer.domElement);
+    main.appendChild(this.renderer.domElement); //to set in the main el
   }
 
+  //CAMERA 
   createCamera() {
     this.camera = new THREE.PerspectiveCamera(20, window.innerWidth / window.innerHeight, 1);
     this.camera.position.set(0, 65, 0);
     this.camera.rotation.x = -1.57;
 
-    this.scene.add(this.camera);
+    this.scene.add(this.camera); //To set the el to the scene. Always do this when we create an el
   }
 
+  //LIGHTING
   addAmbientLight() {
     const light = new THREE.AmbientLight('blue', 5);
 
@@ -187,10 +193,11 @@ class App {
     this.scene.add(this.floor);
   }
 
+  //TO set geometries(cone, tourus & cylind) randomly 
   getRandomGeometry() {
     return this.geometries[Math.floor(Math.random() * Math.floor(this.geometries.length))];
   }
-
+  //To create a grid to dispose the elements
   createGrid() {
     const material = new THREE.MeshPhysicalMaterial({
       color: '#060025',
@@ -198,13 +205,15 @@ class App {
       roughness: 0.05,
     });
 
-    const gutter = {
+    const gutter = { //To separate rows and Cols
       size: 4
     };
 
+    //For rows
     for (let row = 0; row < this.grid.rows; row++) {
       this.meshes[row] = [];
 
+      //For cols
       for (let index = 0; index < 1; index++) {
         const totalCol = this.getTotalRows(row);
 
@@ -254,6 +263,7 @@ class App {
     return mesh;
   }
 
+  //The animations on mousemove
   draw() {
     this.raycaster.setFromCamera(this.mouse3D, this.camera);
 
@@ -314,6 +324,7 @@ class App {
     this.mouse3D.y = -(clientY / this.height) * 2 + 1;
   }
 
+  //FOr responsive
   onResize() {
     this.width = window.innerWidth;
     this.height = window.innerHeight;
@@ -323,6 +334,7 @@ class App {
     this.renderer.setSize(this.width, this.height);
   }
 
+  //Always do this to render the scene
   animate() {
     this.draw();
 
@@ -332,32 +344,4 @@ class App {
   }
 }
 
-new App()
-
-// const tick = new Audio()
-// tick.src = 'assets/tick.mp3'
-
-// const playPromise = tick.play()
-
-
-// if (playPromise !== undefined) {
-//   playPromise.then(_ => {
-//     // Automatic playback started!
-//     // Show playing UI.
-//     tick.currentTime = 0
-//     tick.play()
-//   })
-//   .catch(error => {
-//     // Auto-play was prevented
-//     // Show paused UI.
-//     tick.pause()
-
-//   });
-// }
-
-
-const cursor = document.querySelector('.cursor');
-
-document.addEventListener('mousemove', e => {
-  cursor.setAttribute("style", "translate(" + (e.pageY - 10) + "px, (e.pageX - 10) "+ "px")
-})
+const app = new App()

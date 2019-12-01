@@ -1,16 +1,25 @@
+/*
+  Hello dear Dev, I hope you are fine. This work below has been made by Ange Goua.
+  It's an expermenting of three.js for a class project. BY THE WAY SOME COMMENTS IS JUST THRE JUST TO REMEMBER MYSELF HOW WORK THE THRREE.JS LIBS
+  I tried to do it comprehensible.
 
+  The following is not POO cause it was very complicated with the variables. I tried but to be the much clear in my code, i had to avoid the POO
 
+  To see feature, read the readme.md
+  You can look at my github on github.io/angegooua.
+
+  Have Fun
+*/
+
+//Defining cvariables
 let scene, renderer, camera, clock, width, height, video;
 let particles, videoWidth, videoHeight, imageCache;
-
 const canvas = document.createElement("canvas");
 const ctx = canvas.getContext("2d");
 
-const classNameForLoading = "loading";
-
-// audio
+// AUDIO SETIINGS
 let audio, analyser;
-const fftSize = 2048;  // https://developer.mozilla.org/en-US/docs/Web/API/AnalyserNode/fftSize
+const fftSize = 2048;  //A value par default (Check MDN article on it)
 const frequencyRange = {
     bass: [20, 140],
     lowMid: [140, 400],
@@ -19,21 +28,17 @@ const frequencyRange = {
     treble: [5200, 14000],
 };
 
+//THE INITIALIZATION FUNCTION
 const init = () => {
-    document.body.classList.add(classNameForLoading);
-
     scene = new THREE.Scene();
     scene.background = new THREE.Color(0x060025);
-
     renderer = new THREE.WebGLRenderer();
     document.querySelector('.ipad').appendChild(renderer.domElement);
-
     clock = new THREE.Clock();
-
     initCamera();
-
     onResize();
 
+    //To ask the cam to the user
     navigator.mediaDevices = navigator.mediaDevices || ((navigator.mozGetUserMedia || navigator.webkitGetUserMedia) ? {
         getUserMedia: (c) => {
             return new Promise(function (y, n) {
@@ -46,17 +51,18 @@ const init = () => {
         initAudio();
         initVideo();
     } else {
-        showAlert();
+        alert('Cam not authorized ! Please allow the cam to have fun !')
     }
 
     draw();
 };
 
+//Cam setting 
 const initCamera = () => {
-    const fov = 45;
-    const aspect = width / height;
+    const fov = 45; //Observable angle
+    const aspect = width / height; //To avoid flattening of the vue we take a rato of the window
 
-    camera = new THREE.PerspectiveCamera(fov, aspect, 0.1, 10000);
+    camera = new THREE.PerspectiveCamera(fov, aspect, 0.1, 10000); 
     const z = Math.min(window.innerWidth, window.innerHeight);
     camera.position.set(0, 0, z);
     camera.lookAt(0, 0, 0);
@@ -64,6 +70,8 @@ const initCamera = () => {
     scene.add(camera);
 };
 
+
+//setting of the video
 const initVideo = () => {
     video = document.querySelector(".video");
     video.autoplay = true;
@@ -141,6 +149,7 @@ const createParticles = () => {
     scene.add(particles);
 };
 
+//Canvas getImageData to have the image info
 const getImageData = (image, useCache) => {
     if (useCache && imageCache) {
         return imageCache;
@@ -168,6 +177,8 @@ const getImageData = (image, useCache) => {
  * @param _frequencyRange
  * @returns {number} 0.0 ~ 1.0
  */
+
+ //TO get the frequency value
 const getFrequencyRangeValue = (data, _frequencyRange) => {
     const nyquist = 48000 / 2;
     const lowIndex = Math.round(_frequencyRange[0] / nyquist * data.length);
@@ -243,9 +254,7 @@ const draw = (t) => {
     requestAnimationFrame(draw);
 };
 
-const showAlert = () => {
-    document.getElementById("message").classList.remove("hidden");
-};
+
 
 const onResize = () => {
     width = window.innerWidth;

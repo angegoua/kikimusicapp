@@ -28,6 +28,7 @@ h1 {
     color: white;
     text-align: center;
     z-index: 22;
+    pointer-events: none;
 }
 
 main {

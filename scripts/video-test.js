@@ -29,7 +29,6 @@ const init = () => {
 
     renderer = new THREE.WebGLRenderer();
     document.querySelector('.ipad').appendChild(renderer.domElement);
-    renderer.setClearColor( 0x060025, 25);
 
     clock = new THREE.Clock();
 
@@ -139,6 +138,7 @@ const createParticles = () => {
             geometry.vertices.push(vertex);
         }
     }
+
 
     particles = new THREE.Points(geometry, material);
     scene.add(particles);

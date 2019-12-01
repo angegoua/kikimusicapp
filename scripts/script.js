@@ -64,7 +64,7 @@ class MusicPlay {
         this.setLock()
         this.loadMusics()
         this.changeMusic()
-        this.setShuffle()
+        // this.setShuffle()
         this.setLike()
         this.uploadMusic()
 
@@ -356,75 +356,69 @@ class MusicPlay {
 
     }
 
-    setShuffle() {
+    // setShuffle() {
 
-        const shuffle = iphoneContent.querySelector('.shuffle')
-        const tracklistKeys = Object.keys(tracklist)
+    //     const shuffle = iphoneContent.querySelector('.shuffle')
+    //     const tracklistKeys = Object.keys(tracklist)
 
-        //return an array with the keys ok tracklist Object
+    //     // return an array with the keys ok tracklist Object
 
-        // const randomVal = (Math.random() - 0.5)
+    //     const randomVal = (Math.random() - 0.5)
 
-        // const shuffleVal = (tab, tabLength) => {
+    //     const shuffleVal = (tab, tabLength) => {
 
-        //     return tab[Math.floor(Math.random() * tabLength)]
+    //         return tab[Math.floor(Math.random() * tabLength)]
 
+    //     }
+    //     for (const _key in tracklistKeys) {
+    //         const eachTabInTheTracklist = tracklist[tracklistKeys[_key]] //Has each tab in my Object tracklist. tracklist
+
+    //         console.log(shuffleVal(eachTabInTheTracklist, eachTabInTheTracklist.length))
+    //         console.log(shuffleVal);
+
+    //     }
+
+        // let isShuffled = false
+
+        // const setShuffle = () => {
+
+        //     for (let i = 0; i < tracklist.src.length; i++) {
+        //         const randomNumber = Math.random()
+
+        //         shuffledTrackList.src.push(tracklist.src[randomNumber])
+        //         shuffledTrackList.cover.push(tracklist.cover[randomNumber])
+        //     }
+
+        //     tracklist.src.forEach(m => {
+
+        //     });
+
+        //     for (const _keys in tracklistKeys) {
+
+        //         const key = tracklist[tracklistKeys[_keys]]
+
+
+        //         for (let i = key.length - 1; i > 0; i--) {
+        //             const j = Math.floor(Math.random() * i)
+        //             const temp = key[i]
+        //             key[i] = key[j]
+        //             key[j] = temp
+        //         }
+        //         console.log(key);
+
+        //     }
+
+        //     isShuffled = true
+        //     shuffle.classList.toggle('isActive')
+
+        //     isShuffled == true ? tracklist = {
+        //         key
+        //     } : tracklist
+        //     console.log(tracklist);
         // }
-        // for (const _key in tracklistKeys) {
-        //     const eachTabInTheTracklist = tracklist[tracklistKeys[_key]] //Has each tab in my Object tracklist. tracklist
 
-        //     // console.log(shuffleVal(eachTabInTheTracklist, eachTabInTheTracklist.length))
-        //     // console.log(shuffleVal);
-
-        // }
-
-
-
-        const random = () => {
-            randomVal
-        }
-
-        let isShuffled = false
-
-        const setShuffle = () => {
-
-            for (let i = 0; i < tracklist.src.length; i++) {
-                const randomNumber = Math.random()
-
-                shuffledTrackList.src.push(tracklist.src[randomNumber])
-                shuffledTrackList.cover.push(tracklist.cover[randomNumber])
-            }
-
-            tracklist.src.forEach(m => {
-
-            });
-
-            for (const _keys in tracklistKeys) {
-
-                const key = tracklist[tracklistKeys[_keys]]
-
-
-                for (let i = key.length - 1; i > 0; i--) {
-                    const j = Math.floor(Math.random() * i)
-                    const temp = key[i]
-                    key[i] = key[j]
-                    key[j] = temp
-                }
-                console.log(key);
-
-            }
-
-            isShuffled = true
-            shuffle.classList.toggle('isActive')
-
-            isShuffled == true ? tracklist = {
-                key
-            } : tracklist
-            console.log(tracklist);
-        }
-
-        shuffle.addEventListener('click', setShuffle)
-    }
+        // shuffle.addEventListener('click', setShuffle)
+    // }
 
     setLike() {
 

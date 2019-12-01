@@ -375,10 +375,13 @@ body {
     background: rgb(17, 26, 66);
     font-family: 'Noto Sans';
     font-size: 12px;
+    transform: scale(0);
+    transition: transform .3s ;
+    transform-origin: bottom center;
     opacity: 1 !important;
     border-radius: 10px;
     z-index: 10000;
-    display: none;
+    will-change: transform;
 }
 
 .playlist-controls .heart .like-info:after {
@@ -404,7 +407,7 @@ body {
 }
 
 .iphone-content .playlist-controls .heart:hover .like-info{
-    display: block;
+    transform: scale(1);
 }
 svg, img {
     cursor: pointer;

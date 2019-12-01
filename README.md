@@ -55,7 +55,10 @@ I, myself, dit the design proto on Adobe XD by keeping in king itunes App Dark m
 ## Thanks
 
 Thanks to Francois Xavier & Corto to help me.
+
 Thanks also to my favorite and amazing, teacher, the best of the best of the best dev, BRUNO SIMON to help me.
+
 Thanks to the Facebook forum Web Developpeurs & Developpeurs Francophones.
+
 And the video camera visualiser has been done thanks to a tutorial of codrops 
 https://tympanus.net/Tutorials/webcam-audio-visualizer/

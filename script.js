@@ -55,9 +55,9 @@ class MusicPlay {
 
 
         //Call Methods
-        // this.setToStorage = (storageTitle, value) => localStorage.setItem(storageTitle, value)
+        this.setToStorage = (storageTitle, value) => localStorage.setItem(storageTitle, value)
 
-        // this.updateValueFromStorage()
+        this.updateValueFromStorage()
         this.togglePlay()
         this.setSeekBar()
         this.setVolume()
@@ -70,13 +70,16 @@ class MusicPlay {
 
     }
 
-    // updateValueFromStorage() {
-    //     const currentTimeUpdated = localStorage.getItem('music')
-    //     this.currentMusic = currentTimeUpdated
+    updateValueFromStorage() {
+        if (localStorage.length > 0) {
+            const currentTimeUpdated = localStorage.getItem('music')
+            this.currentMusic = currentTimeUpdated
 
-    //     const volumeUpdated = localStorage.getItem('volume')
-    //     this.volume = volumeUpdated
-    // }
+            const volumeUpdated = localStorage.getItem('volume')
+            this.volume = volumeUpdated
+        }
+
+    }
 
     togglePlay() {
 
@@ -109,12 +112,12 @@ class MusicPlay {
             }
         })
 
-        this.pauseState = ()=> {
+        this.pauseState = () => {
             pause.classList.add('playingState')
             play.classList.remove('playingState')
         }
 
-        this.playState = ()=> {
+        this.playState = () => {
             pause.classList.remove('playingState')
             play.classList.add('playingState')
         }
@@ -123,12 +126,12 @@ class MusicPlay {
         this.audioElement.addEventListener('playing', () => {
             this.playState()
 
-        }) 
+        })
         this.audioElement.addEventListener('ended', () => {
             this.pauseState()
         })
 
-        
+
 
     }
 
@@ -204,7 +207,7 @@ class MusicPlay {
         seekBarFillVolume.style.transform = `scaleX(${this.volume})`
         handleVolume.style.transform = `translateX(${this.volume * 150}px )`
         console.log(this.volume);
-        
+
 
         const setStyleVolume = (toTransform) => {
             seekBarFillVolume.style.transform = `scaleX(${toTransform})`
@@ -220,7 +223,7 @@ class MusicPlay {
 
             this.audioElement.volume = volume
 
-            // this.setToStorage('volume', this.volume)
+            this.setToStorage('volume', this.volume)
             setStyleVolume(volume)
         }
 
@@ -229,7 +232,7 @@ class MusicPlay {
             this.audioElement.volume = this.volume
 
             setStyleVolume(this.volume)
-            // this.setToStorage('volume', this.volume)
+            this.setToStorage('volume', this.volume)
         }
 
         const setVolumeDown = () => {
@@ -237,7 +240,7 @@ class MusicPlay {
             this.audioElement.volume = this.volume
 
             setStyleVolume(this.volume)
-            // this.setToStorage('volume', this.volume)
+            this.setToStorage('volume', this.volume)
 
         }
 
@@ -328,7 +331,7 @@ class MusicPlay {
         const playNextMusic = () => {
             this.currentMusic < this.musicSrc.length - 1 ?
                 this.currentMusic++ : this.currentMusic = 0
-            // this.setToStorage('music', this.currentMusic)
+            this.setToStorage('music', this.currentMusic)
 
             this.pauseState() //Define in togglePlay()
             this.audioElement.play()
@@ -338,7 +341,7 @@ class MusicPlay {
         const playPreviousMusic = () => {
             this.currentMusic > 0 ?
                 this.currentMusic-- : this.currentMusic = this.currentMusic = this.musicSrc.length - 1
-            // this.setToStorage('music', this.currentMusic)
+            this.setToStorage('music', this.currentMusic)
 
             this.pauseState()
             updateMusicInfo()

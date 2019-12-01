@@ -32,3 +32,7 @@ p{
     width: 900px;
     height: 500px;
 }
+
+.hidden {
+    display: none;
+}

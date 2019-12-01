@@ -1,5 +1,3 @@
-/* jshint node: true */
-/* globals THREE */
 
 
 let scene, renderer, camera, clock, width, height, video;
@@ -95,7 +93,6 @@ const initAudio = () => {
     audio = new THREE.Audio(audioListener);
 
     const audioLoader = new THREE.AudioLoader();
-    // https://www.newgrounds.com/audio/listen/232941
     audioLoader.load('assets/chocolat.mp3', (buffer) => {
         document.body.classList.remove(classNameForLoading);
 

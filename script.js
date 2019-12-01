@@ -206,7 +206,6 @@ class MusicPlay {
 
         seekBarFillVolume.style.transform = `scaleX(${this.volume})`
         handleVolume.style.transform = `translateX(${this.volume * 150}px )`
-        console.log(this.volume);
 
 
         const setStyleVolume = (toTransform) => {
@@ -219,12 +218,13 @@ class MusicPlay {
         const toggleVolume = (_event) => {
 
             const bounding = seekBarVolume.getBoundingClientRect()
-            const volume = (_event.clientX - bounding.left) / bounding.width
+             this.volume = (_event.clientX - bounding.left) / bounding.width
 
-            this.audioElement.volume = volume
+            this.audioElement.volume = this.volume
 
+            setStyleVolume(this.volume)
             this.setToStorage('volume', this.volume)
-            setStyleVolume(volume)
+
         }
 
         const setVolumeUp = () => {

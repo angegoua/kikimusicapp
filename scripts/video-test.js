@@ -195,6 +195,7 @@ const draw = (t) => {
     if (analyser) {
         // analyser.getFrequencyData() would be an array with a size of half of fftSize.
         const data = analyser.getFrequencyData();
+        
 
         const bass = getFrequencyRangeValue(data, frequencyRange.bass);
         const mid = getFrequencyRangeValue(data, frequencyRange.mid);

@@ -409,7 +409,7 @@ body {
 .iphone-content .playlist-controls .heart:hover .like-info{
     transform: scale(1);
 }
-svg, img {
+svg:not(.upload-svg), img:not(.cover) {
     cursor: pointer;
 }
 
@@ -631,6 +631,15 @@ li {
     margin-left: 3px;
 }
 
+.message {
+    width: 80%;
+    margin: 10px auto;
+    font-family: 'Noto Sans';
+    font-size: 12px;
+    text-align: center;
+    transform: scale(0);
+}
+
 
 /*
 *  JS CLASSES
@@ -652,9 +661,20 @@ li {
 }
 
 a {
+    display: block;
+    width: 150px;
     position: absolute;
-    bottom: 10%;
-    left: 35%;
+    margin-top: 30px;
+    padding: 10px;
+    border-radius: 40px;
+    bottom: 5%;
+    left: calc(50% - 150px /2);
+
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    font-family: 'Noto Sans';
+    background: rgb(54, 1, 70);
 }
 
 

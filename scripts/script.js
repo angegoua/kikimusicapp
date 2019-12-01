@@ -52,10 +52,10 @@ class MusicPlay {
         this.musicTitle = tracklist.title
         this.musicArtist = tracklist.artist
 
-        
+
 
         //Call Methods
-        this.setToStorage = (storageTitle, value)=> localStorage.setItem(storageTitle , value)
+        this.setToStorage = (storageTitle, value) => localStorage.setItem(storageTitle, value)
 
         this.updateValueFromStorage()
         this.togglePlay()
@@ -70,7 +70,7 @@ class MusicPlay {
 
     }
 
-    updateValueFromStorage(){
+    updateValueFromStorage() {
         const currentTimeUpdated = localStorage.getItem('music')
         this.currentMusic = currentTimeUpdated
 
@@ -101,32 +101,34 @@ class MusicPlay {
         // TogglePlay
         this.playBox.addEventListener('click', switchPlayingStateButton)
 
-        document.addEventListener('keydown', (_e)=> {
+        document.addEventListener('keydown', (_e) => {
             const keyCode = _e.code
-            
-            if(keyCode == 'Space'){
-                 switchPlayingStateButton()
+
+            if (keyCode == 'Space') {
+                switchPlayingStateButton()
             }
         })
 
-
-
-        let playing = false
-        this.audioElement.addEventListener('playing', () => {
-            pause.classList.remove('playingState')
-            play.classList.add('playingState')
-
-            playing = true
-        })
-
-        // this.audioElement.addEventListener('ended', () => {
-        if (playing == false) {
+        this.pauseState = ()=> {
             pause.classList.add('playingState')
             play.classList.remove('playingState')
         }
 
-        // })
+        this.playState = ()=> {
+            pause.classList.remove('playingState')
+            play.classList.add('playingState')
+        }
 
+
+        this.audioElement.addEventListener('playing', () => {
+            this.playState()
+
+        }) 
+        this.audioElement.addEventListener('ended', () => {
+            this.pauseState()
+        })
+
+        
 
     }
 
@@ -184,7 +186,7 @@ class MusicPlay {
         seekBar.addEventListener('click', setCurrentTime)
         handle.addEventListener('mousedown', dragTimeLine)
 
-        
+
 
     }
 
@@ -217,35 +219,35 @@ class MusicPlay {
             setStyleVolume(volume)
         }
 
-        const setVolumeUp = ()=> {
+        const setVolumeUp = () => {
             this.volume = Math.min(this.audioElement.volume + 0.1, 1)
             this.audioElement.volume = this.volume
-            
+
             setStyleVolume(this.volume)
             this.setToStorage('volume', this.volume)
         }
 
-        const setVolumeDown = ()=> {
+        const setVolumeDown = () => {
             this.volume = Math.max(this.audioElement.volume - 0.1, 0)
             this.audioElement.volume = this.volume
 
             setStyleVolume(this.volume)
             this.setToStorage('volume', this.volume)
-            
+
         }
 
         seekBarVolume.addEventListener('mousedown', toggleVolume)
 
-        document.addEventListener('keydown', (_e)=> {
+        document.addEventListener('keydown', (_e) => {
             const keyCode = _e.code
-            if(keyCode == 'ArrowDown'){
+            if (keyCode == 'ArrowDown') {
                 setVolumeDown()
             }
         })
 
-        document.addEventListener('keydown', (_e)=> {
+        document.addEventListener('keydown', (_e) => {
             const keyCode = _e.code
-            if(keyCode == 'ArrowUp'){
+            if (keyCode == 'ArrowUp') {
                 setVolumeUp()
             }
         })
@@ -316,37 +318,40 @@ class MusicPlay {
         }
 
         //Push to localStorage
-            
+
 
         const playNextMusic = () => {
             this.currentMusic < this.musicSrc.length - 1 ?
                 this.currentMusic++ : this.currentMusic = 0
-
             this.setToStorage('music', this.currentMusic)
+
+            this.pauseState() //Define in togglePlay()
+            this.audioElement.play()
             updateMusicInfo()
         }
 
         const playPreviousMusic = () => {
-            this.currentMusic > 0 ? 
+            this.currentMusic > 0 ?
                 this.currentMusic-- : this.currentMusic = this.currentMusic = this.musicSrc.length - 1
-
             this.setToStorage('music', this.currentMusic)
+
+            this.pauseState()
             updateMusicInfo()
 
         }
-        document.addEventListener('keydown', (_e)=> {
+        document.addEventListener('keydown', (_e) => {
             const keyCode = _e.code
-            
-            if(keyCode == 'ArrowLeft'){
-                 playPreviousMusic()
+
+            if (keyCode == 'ArrowLeft') {
+                playPreviousMusic()
             }
         })
 
-        document.addEventListener('keydown', (_e)=> {
+        document.addEventListener('keydown', (_e) => {
             const keyCode = _e.code
-            
-            if(keyCode == 'ArrowRight'){
-                 playNextMusic()
+
+            if (keyCode == 'ArrowRight') {
+                playNextMusic()
             }
         })
 
@@ -378,46 +383,46 @@ class MusicPlay {
 
     //     }
 
-        // let isShuffled = false
+    // let isShuffled = false
 
-        // const setShuffle = () => {
+    // const setShuffle = () => {
 
-        //     for (let i = 0; i < tracklist.src.length; i++) {
-        //         const randomNumber = Math.random()
+    //     for (let i = 0; i < tracklist.src.length; i++) {
+    //         const randomNumber = Math.random()
 
-        //         shuffledTrackList.src.push(tracklist.src[randomNumber])
-        //         shuffledTrackList.cover.push(tracklist.cover[randomNumber])
-        //     }
+    //         shuffledTrackList.src.push(tracklist.src[randomNumber])
+    //         shuffledTrackList.cover.push(tracklist.cover[randomNumber])
+    //     }
 
-        //     tracklist.src.forEach(m => {
+    //     tracklist.src.forEach(m => {
 
-        //     });
+    //     });
 
-        //     for (const _keys in tracklistKeys) {
+    //     for (const _keys in tracklistKeys) {
 
-        //         const key = tracklist[tracklistKeys[_keys]]
+    //         const key = tracklist[tracklistKeys[_keys]]
 
 
-        //         for (let i = key.length - 1; i > 0; i--) {
-        //             const j = Math.floor(Math.random() * i)
-        //             const temp = key[i]
-        //             key[i] = key[j]
-        //             key[j] = temp
-        //         }
-        //         console.log(key);
+    //         for (let i = key.length - 1; i > 0; i--) {
+    //             const j = Math.floor(Math.random() * i)
+    //             const temp = key[i]
+    //             key[i] = key[j]
+    //             key[j] = temp
+    //         }
+    //         console.log(key);
 
-        //     }
+    //     }
 
-        //     isShuffled = true
-        //     shuffle.classList.toggle('isActive')
+    //     isShuffled = true
+    //     shuffle.classList.toggle('isActive')
 
-        //     isShuffled == true ? tracklist = {
-        //         key
-        //     } : tracklist
-        //     console.log(tracklist);
-        // }
+    //     isShuffled == true ? tracklist = {
+    //         key
+    //     } : tracklist
+    //     console.log(tracklist);
+    // }
 
-        // shuffle.addEventListener('click', setShuffle)
+    // shuffle.addEventListener('click', setShuffle)
     // }
 
     setLike() {
@@ -540,6 +545,8 @@ class MusicPlay {
         const uploadButton = iphoneContent.querySelector('.upload-button')
         const uploadSection = iphoneContent.querySelector('.upload-files')
         const backUpload = iphoneContent.querySelector('.back-upload')
+        const files = document.querySelector('#files')
+
 
         //To open Panel
         uploadButton.addEventListener('click', () => {
@@ -571,15 +578,18 @@ class MusicPlay {
                     play.addEventListener('click', () => {
                         source.start(0);
                         play.classList.remove('isActivePlayFile')
-                        
+
+                        files.style.transform = 'scale(0)'
+                        document.querySelector('.message').style.transform = 'scale(1)'
+
                     })
 
                     // stopMusicAndClosePanel(source)
                     backUpload.addEventListener('click', () => {
-                
+
                         uploadSection.classList.remove('isActive')
                         source.stop()
-        
+
                     })
 
                     // 
@@ -590,7 +600,7 @@ class MusicPlay {
                 var files = _event.target.files // FileList object
                 playFile(files[0])
                 play.classList.add('isActivePlayFile')
-                
+
             }
 
             const playFile = file => {
@@ -601,7 +611,6 @@ class MusicPlay {
                 fileReader.readAsArrayBuffer(file)
             }
 
-            const files = document.querySelector('#files')
             files.addEventListener('change', handleFileSelect, false)
         }
     }

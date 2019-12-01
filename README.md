@@ -7,7 +7,7 @@ A school project music app
 * Change volume by clicking
 * Navigate with arrow and space bar(left and right to change music & up and down to change volume & space bar to pause and play)
 * localStorage save your music and volume setting 
-* Like a music When you like a music, there is an notif. You can long press the heart button to see liked musics
+* Like a music. When you like a music, there is a notification. You can long press the heart button to see liked musics
 * Upload by music by clicking on the upload button and reckick on the panel which appear
 
 * Fun webGL Mouse effect on the home page

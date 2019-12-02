@@ -17,7 +17,7 @@ A school project music app
 ## To add music
 
 Just add your music link, the cover, the artist name, and the song name in the tracklist object
-```
+```javascript
 const tracklist = {
     musicSrc: [
         'assets/audd.mp3',
